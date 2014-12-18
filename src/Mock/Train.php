@@ -17,7 +17,6 @@ class Train
 
     public function __construct()
     {
-        $this->log = new Log('train.log');
     }
 
     public function rideRoute()
@@ -55,8 +54,21 @@ class Train
     {
         return $this->log->hasContent();
     }
+
+    public function testLog()
+    {
+        return $this->log->logMessage('das ist ein Zug');
+    }
+
+    /**
+     * @param Log $log
+     */
+    public function setLog(Log $log)
+    {
+        $this->log = $log;
+    }
 }
 
 //include('../../vendor/autoload.php');
-//$train = new Train();
+//$train = TrainFactory::createTrain();
 //$train->rideRoute();

@@ -24,5 +24,27 @@ class CarTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(4, $this->car->getNumberOfWheels());
     }
+
+    public function testAddWheel()
+    {
+        $this->car->addWheel();
+
+        $this->assertEquals(5, $this->car->getNumberOfWheels());
+    }
+
+    public function testSellAllWheels()
+    {
+        $this->car->sellAllWheels();
+        $this->assertEquals(0,$this->car->getNumberOfWheels());
+    }
+
+    public function testAddAndSellWheels()
+    {
+        $this->car->addWheel();
+        $this->car->sellAllWheels();
+        $this->assertEquals(0,$this->car->getNumberOfWheels());
+    }
+
+
 }
 

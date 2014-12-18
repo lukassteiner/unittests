@@ -20,10 +20,12 @@ class Log
 
     /**
      * @param string $message
+     * @return string
      */
     public function logMessage($message)
     {
         file_put_contents(self::LOG_FILE_PATH . $this->logFilename, $message . PHP_EOL, FILE_APPEND);
+        return $message;
     }
 
     /**
